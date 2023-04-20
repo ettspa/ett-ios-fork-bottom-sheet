@@ -49,6 +49,7 @@ class UIScrollViewController: UIViewController {
         super.viewDidAppear(true)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        panGestureRecognizer.minimumNumberOfTouches = 2
         view.addGestureRecognizer(panGestureRecognizer)
         
         updateScrollView()
