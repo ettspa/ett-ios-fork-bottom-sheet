@@ -49,6 +49,7 @@ class UIScrollViewController: UIViewController {
         super.viewDidAppear(true)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        panGestureRecognizer.minimumNumberOfTouches = 2
         view.addGestureRecognizer(panGestureRecognizer)
         
         updateScrollView()
@@ -58,7 +59,7 @@ class UIScrollViewController: UIViewController {
         let scrollViews = view.findViews(subclassOf: UIScrollView.self)
         
         if !scrollViews.isEmpty {
-            scrollViews[0].showsVerticalScrollIndicator = true
+            scrollViews[0].showsVerticalScrollIndicator = false
             scrollViews[0].delegate = scrollViewDelegate
         }
     }
